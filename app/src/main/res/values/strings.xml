@@ -7,4 +7,5 @@
     <string name="mypage">마이페이지</string>
     <string name="hire">채용</string>
     <string name="commentHint">댓글을 입력하세요.</string>
+    <string name="toastRegisterChat">채팅이 전송되었습니다.</string>
 </resources>

@@ -7,10 +7,13 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import com.example.chatapp.R
+import com.example.chatapp.api.Jsons
 import com.example.chatapp.model.ItemChat
 import com.example.chatapp.model.ItemChatList
+import com.example.chatapp.model.entity.ErrorResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 
 class Utils {
     //diffutil을 이용해 adapter에 들어오는 아이템을 비교합니다.
@@ -67,4 +70,8 @@ inline fun ViewModel.onMain(
 
 fun Fragment.toast(id: Int) {
     Toast.makeText(context, context?.getString(id), Toast.LENGTH_SHORT).show()
+}
+
+fun setErrorMessage(errorBody: ResponseBody?): ErrorResponse {
+    return Jsons.gson().fromJson(errorBody?.string(), ErrorResponse::class.java)
 }
