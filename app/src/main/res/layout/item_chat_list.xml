@@ -58,7 +58,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/chatBadge"
-        style="@style/body12White"
+        style="@style/body14White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_badge"

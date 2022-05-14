@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import com.example.chatapp.R
+import com.example.chatapp.model.ItemChat
 import com.example.chatapp.model.ItemChatList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -24,6 +25,22 @@ class Utils {
         override fun areContentsTheSame(
             oldItem: ItemChatList,
             newItem: ItemChatList
+        ): Boolean {
+            return oldItem.id == newItem.id
+        }
+    }
+
+    val chatDiffCallback = object : DiffUtil.ItemCallback<ItemChat>() {
+        override fun areItemsTheSame(
+            oldItem: ItemChat,
+            newItem: ItemChat
+        ): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(
+            oldItem: ItemChat,
+            newItem: ItemChat
         ): Boolean {
             return oldItem.id == newItem.id
         }

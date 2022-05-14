@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentChatListBinding
 import com.example.chatapp.model.ItemChatList
+import com.example.chatapp.util.Constants.BUNDLE_CHAT_INFO
+import com.example.chatapp.util.findParentNavController
 import com.example.chatapp.view.adapter.ChatListAdapter
 
 class ChatListFragment : Fragment() {
@@ -41,8 +45,13 @@ class ChatListFragment : Fragment() {
     private fun addClickListener() {
         chatAdapter.setItemClickListener(object : ChatListAdapter.ItemClickListener {
             override fun onClick(obj: ItemChatList) {
-                TODO("Not yet implemented")
+                moveToChatRoom(obj)
             }
         })
+    }
+
+    private fun moveToChatRoom(obj: ItemChatList) {
+        val bundle = bundleOf(BUNDLE_CHAT_INFO to obj)
+        findParentNavController().navigate(R.id.action_baseFragment_to_chatRoomFragment, bundle)
     }
 }

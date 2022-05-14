@@ -9,3 +9,12 @@ data class ItemChatList(
     val chatPreView : String,
     val badge : Int
 )
+
+data class ItemChat(
+    val id : Int,
+    val other : Boolean,
+    val userName: String,
+    val userProfile: String,
+    val lastDate: String,
+    val chat : String
+)

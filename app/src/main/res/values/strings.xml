@@ -6,4 +6,5 @@
     <string name="chat">메시지</string>
     <string name="mypage">마이페이지</string>
     <string name="hire">채용</string>
+    <string name="commentHint">댓글을 입력하세요.</string>
 </resources>

@@ -10,6 +10,14 @@
         android:name="com.example.chatapp.view.base.BaseFragment"
         android:label="fragment_base"
         tools:layout="@layout/fragment_base">
+        <action
+            android:id="@+id/action_baseFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.example.chatapp.view.chatList.chatRoom.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room" />
 
 </navigation>
