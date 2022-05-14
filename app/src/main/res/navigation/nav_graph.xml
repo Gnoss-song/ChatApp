@@ -10,7 +10,6 @@
         android:name="com.example.chatapp.view.base.BaseFragment"
         android:label="fragment_base"
         tools:layout="@layout/fragment_base">
-
     </fragment>
 
 </navigation>

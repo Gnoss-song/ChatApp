@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title20Black">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="title16Black">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="subTitle14Blue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primaryBlue</item>
+    </style>
+
+    <style name="body14Black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="body12Grey">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/primaryGrey</item>
+    </style>
+
+    <style name="body12White">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
