@@ -5,16 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentMyPageBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MyPageFragment : Fragment() {
 
-    lateinit var binding : FragmentMyPageBinding
+    @Inject
+    lateinit var userManager: com.example.chatapp.util.UserManager
+
+    lateinit var binding: FragmentMyPageBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMyPageBinding.inflate(inflater,container,false)
+        binding = FragmentMyPageBinding.inflate (inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnLogout.setOnClickListener {
+            userManager.logout()
+            moveToHome()
+        }
+    }
+    private fun moveToHome(){
+        findNavController().navigate(R.id.action_global_homeFragment)
     }
 }

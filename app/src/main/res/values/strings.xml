@@ -8,4 +8,11 @@
     <string name="hire">채용</string>
     <string name="commentHint">댓글을 입력하세요.</string>
     <string name="toastRegisterChat">채팅이 전송되었습니다.</string>
+    <string name="toastLoginInfo">아이디와 비밀번호를 확인해주세요.</string>
+    <string name="toastNetwork">네트워크 상태가 좋지 않습니다.</string>
+    <string name="toastLogin">로그인 되었습니다.</string>
+    <string name="hintId">please enter your id</string>
+    <string name="hintPassword">please enter your password</string>
+    <string name="login">로그인 하기</string>
+    <string name="logout">로그아웃</string>
 </resources>

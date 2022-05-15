@@ -11,8 +11,15 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentBaseBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class BaseFragment : Fragment() {
+
+    @Inject
+    lateinit var userManager: com.example.chatapp.util.UserManager
+
     lateinit var binding: FragmentBaseBinding
 
     private lateinit var navHostFragment: NavHostFragment
@@ -38,13 +45,28 @@ class BaseFragment : Fragment() {
             itemIconTintList = null
             setOnItemSelectedListener { item ->
                 return@setOnItemSelectedListener if (binding.bottomNavigation.selectedItemId != item.itemId) {
-                    NavigationUI.onNavDestinationSelected(
-                        item, navHostFragment.findNavController()
-                    )
-                    true
+                    if (checkLogin(item.itemId)) {
+                        NavigationUI.onNavDestinationSelected(
+                            item, navHostFragment.findNavController()
+                        )
+                        true
+                    } else {
+                        false
+                    }
                 } else {
                     true
                 }
+            }
+        }
+    }
+
+    private fun checkLogin(itemId: Int): Boolean {
+        return when (itemId) {
+            R.id.chatFragment, R.id.myPageFragment -> {
+                userManager.checkLogin(requireActivity())
+            }
+            else -> {
+                true
             }
         }
     }

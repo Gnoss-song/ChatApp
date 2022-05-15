@@ -1,9 +1,13 @@
 package com.example.chatapp.di
 
+import android.app.Application
+import android.content.Context
 import com.example.chatapp.util.Constants.BASE_URL
 import com.example.chatapp.api.Jsons
 import com.example.chatapp.api.ApiService
 import com.example.chatapp.api.AuthInterceptor
+import com.example.chatapp.util.Constants
+import com.example.chatapp.util.UserManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +26,19 @@ object ApiModule {
     @Provides
     fun provideAuthInterceptor(): AuthInterceptor {
         return AuthInterceptor()
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserManager(
+        application: Application
+    ): UserManager {
+        return UserManager(
+            application.getSharedPreferences(
+                Constants.UserManager,
+                Context.MODE_PRIVATE
+            )
+        )
     }
 
     @Singleton
